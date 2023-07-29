@@ -1,32 +1,13 @@
-lude <stdlib.h>
-#include <string.h>
-#include "lists.h"
+#include <stdio.h>
+
+void first_print(void) __attribute__ ((constructor));
 
 /**
- *  * add_node - Function that add a new node at the beginning of a list_t list
- *   * @head: The head double pointer to the list_t list
- *    * @str: New string to add in the node
- *     *
- *      * Return: Returns the address of the new element, or NULL if it fails
- *       */
-list_t *add_node(list_t **head, const char *str)
+ * first - This func prints a sentence before the main
+ * Function is executed
+ */
+void first_print(void)
 {
-		list_t *newnode;
-			unsigned int lenght = 0;
-
-				while (str[lenght])
-							lenght++;
-
-					newnode = malloc(sizeof(list_t));
-						if (!newnode)
-									return (NULL);
-
-							newnode->str = strdup(str);
-								newnode->lenght = lenght;
-									newnode->next = (*head);
-										(*head) = newnode;
-
-											return (*head);
+	printf("You're beat! and yet, you must allow,\n");
+	printf("I bore my house upon my back!\n");
 }
-
-
