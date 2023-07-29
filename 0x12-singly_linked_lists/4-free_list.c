@@ -1,32 +1,19 @@
 #include <stdlib.h>
-#include <string.h>
 #include "lists.h"
 
 /**
- *  * add_node - Function that add a new node at the beginning of a list_t list
- *   * @head: The head double pointer to the list_t list
- *    * @str: New string to add in the node
- *     *
- *      * Return: Returns the address of the new element, or NULL if it fails
- *       */
-list_t *add_node(list_t **head, const char *str)
+ * free_list - This func frees a list_t
+ * @head: Pointer
+ */
+void free_list(list_t *head)
 {
-		list_t *newnode;
-			unsigned int lenght = 0;
+	list_t *tempr;
 
-				while (str[lenght])
-							lenght++;
-
-					newnode = malloc(sizeof(list_t));
-						if (!newnode)
-									return (NULL);
-
-							newnode->str = strdup(str);
-								newnode->lenght = lenght;
-									newnode->next = (*head);
-										(*head) = newnode;
-
-											return (*head);
+	while (head)
+	{
+		tempr = head->next;
+		free(head->str);
+		free(head);
+		head = tempr;
+	}
 }
-
-
