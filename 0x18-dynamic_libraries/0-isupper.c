@@ -1,6 +1,4 @@
-#!/bin/bash
 #include "main.h"
-
 /**
  * _isupper - uppercase letters
  * @c: char to check
